@@ -1,8 +1,13 @@
 <script>
-  const currentyear = 2025;
-  let birthyear
-  let age
-
-  birthyear = parseint(prompt("당신이 태어난 년도를 입력하세요.(YYYY) :", ""));
-  age = currentyear- birthyear + 1
+  let usernumber = prompt("숫자를 입력하세요 :")
+  if(usernumber !== null){
+    usernumber = parseInt(usernumber);
+    if (usernumber % 3 ===0)
+      alert("3의배수입니다")
+    else 
+      alert ( "3의 배수가 아닙니다.");
+  }
+  else {
+    alert("입력이 취소되었습니다.")
+  }
 </script>

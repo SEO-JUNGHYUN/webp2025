@@ -5,60 +5,14 @@
 </head>
 <body>
   <h1>Chapter 9</h1>
-  <p>자바스크립트 객체 생성과 활용 심화 요약</p>
+  <p>자바스크립트 객체 만들기 및 활용 요약</p>
   <ul>
-    <li><strong>객체 만들기</strong>: 중괄호({})로 key-value 쌍 구성
-      <pre><code>
-let student = {
-  name: "Doremi",
-  age: 17
-};
-      </code></pre>
-    </li>
-    <li><strong>중첩 객체</strong>: 객체 안에 또 다른 객체나 함수
-      <pre><code>
-let student = {
-  name: "Doremi",
-  score: {
-    history: 85,
-    science: 94,
-    average: function() {
-      return (this.history + this.science) / 2;
-    }
-  }
-};
-student.score.history;
-student.score.average();
-      </code></pre>
-    </li>
-    <li><strong>for...in문</strong>: 객체의 key를 순회
-      <pre><code>
-let bag = {
-  type: "backpack",
-  color: "blue",
-  size: 15
-};
-for (let key in bag) {
-  console.log(`${key} : ${bag[key]}`);
-}
-      </code></pre>
-    </li>
-    <li><strong>객체 메서드</strong>:
-      <ul>
-        <li><code>Object.keys(obj)</code>: 키 배열</li>
-        <li><code>Object.values(obj)</code>: 값 배열</li>
-        <li><code>Object.entries(obj)</code>: [키, 값] 배열</li>
-      </ul>
-    </li>
-    <li><strong>프로토타입 상속</strong>: 객체 간 연결
-      <pre><code>
-let parent = { canEat: true };
-let child = {};
-Object.setPrototypeOf(child, parent);
-console.log(child.canEat); // true
-      </code></pre>
-    </li>
+    <li><strong>중첩 객체</strong>: 객체 안에 또 다른 객체 또는 함수 포함</li>
+    <li><strong>for...in</strong>: 객체의 키 반복 순회</li>
+    <li><strong>Object.keys()</strong>: 키 목록 배열</li>
+    <li><strong>Object.values()</strong>: 값 목록 배열</li>
+    <li><strong>Object.entries()</strong>: [키, 값] 배열</li>
+    <li><strong>Object.setPrototypeOf()</strong>: 상속 관계 설정</li>
   </ul>
 </body>
 </html>
-

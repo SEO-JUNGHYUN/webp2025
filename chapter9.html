@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chapter 9 - 객체 만들기</title>
+</head>
+<body>
+  <h1>Chapter 9</h1>
+  <p>자바스크립트 객체 생성과 활용 심화 요약</p>
+  <ul>
+    <li><strong>객체 만들기</strong>: 중괄호({})로 key-value 쌍 구성
+      <pre><code>
+let student = {
+  name: "Doremi",
+  age: 17
+};
+      </code></pre>
+    </li>
+    <li><strong>중첩 객체</strong>: 객체 안에 또 다른 객체나 함수
+      <pre><code>
+let student = {
+  name: "Doremi",
+  score: {
+    history: 85,
+    science: 94,
+    average: function() {
+      return (this.history + this.science) / 2;
+    }
+  }
+};
+student.score.history;
+student.score.average();
+      </code></pre>
+    </li>
+    <li><strong>for...in문</strong>: 객체의 key를 순회
+      <pre><code>
+let bag = {
+  type: "backpack",
+  color: "blue",
+  size: 15
+};
+for (let key in bag) {
+  console.log(`${key} : ${bag[key]}`);
+}
+      </code></pre>
+    </li>
+    <li><strong>객체 메서드</strong>:
+      <ul>
+        <li><code>Object.keys(obj)</code>: 키 배열</li>
+        <li><code>Object.values(obj)</code>: 값 배열</li>
+        <li><code>Object.entries(obj)</code>: [키, 값] 배열</li>
+      </ul>
+    </li>
+    <li><strong>프로토타입 상속</strong>: 객체 간 연결
+      <pre><code>
+let parent = { canEat: true };
+let child = {};
+Object.setPrototypeOf(child, parent);
+console.log(child.canEat); // true
+      </code></pre>
+    </li>
+  </ul>
+</body>
+</html>
 

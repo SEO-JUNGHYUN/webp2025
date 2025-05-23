@@ -7,34 +7,11 @@
   <h1>Chapter 7</h1>
   <p>자바스크립트 DOM 활용 요약</p>
   <ul>
-    <li><strong>document.createElement(요소명)</strong>: 새로운 요소 노드 생성</li>
-    <li><strong>document.createTextNode("텍스트")</strong>: 텍스트 노드 생성</li>
-    <li><strong>appendChild()</strong>: 자식 노드를 부모 노드에 추가</li>
-    <li><strong>예제:</strong>
-      <pre><code>
-orderButton.addEventListener("click", () => {
-  let newP = document.createElement("p");
-  let textNode = document.createTextNode(title.innerText);
-  newP.appendChild(textNode);
-  orderinfo.appendChild(newP);
-});
-      </code></pre>
-    </li>
-    <li><strong>createAttribute()</strong>: 속성 노드 생성 및 값 지정
-      <pre><code>
-let srcNode = document.createAttribute("src");
-srcNode.value = "images/wall.jpg";
-요소노드.setAttributeNode(srcNode);
-      </code></pre>
-    </li>
-    <li><strong>insertBefore()</strong>: 기존 자식 앞에 새 노드 삽입</li>
-    <li><strong>remove()</strong>: 요소 자체 제거</li>
-    <li><strong>removeChild()</strong>: 자식 노드 제거
-      <pre><code>
-this.parentNode.parentNode.removeChild(this.parentNode);
-      </code></pre>
-    </li>
+    <li><strong>요소 생성</strong>: document.createElement()</li>
+    <li><strong>텍스트 노드 생성</strong>: document.createTextNode()</li>
+    <li><strong>자식 추가</strong>: appendChild()</li>
+    <li><strong>요소 삭제</strong>: remove(), removeChild()</li>
+    <li><strong>속성 추가</strong>: setAttribute(), createAttribute()</li>
   </ul>
 </body>
 </html>
-

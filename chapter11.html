@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 11 - Canvas</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #34495e;
+    }
+    ul {
+      margin-left: 1rem;
+    }
+    li {
+      margin-bottom: 0.3rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-size: 0.95em;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 11 - Canvas</h1>
+
+  <h2>🖼️ Canvas란?</h2>
+  <ul>
+    <li>HTML5에서 제공하는 그래픽 영역 요소</li>
+    <li>픽셀 기반의 그래픽을 자바스크립트로 직접 그릴 수 있음</li>
+    <li>게임, 차트, 이미지 처리 등에 활용</li>
+  </ul>
+
+  <h2>📐 기본 구조</h2>
+  <pre><code><canvas id="myCanvas" width="300" height="150"></canvas>
+
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+</script></code></pre>
+
+  <h2>✏️ 주요 메서드</h2>
+  <ul>
+    <li><code>fillRect(x, y, width, height)</code>: 사각형 그리기</li>
+    <li><code>beginPath()</code>, <code>arc()</code>, <code>fill()</code>: 원 그리기</li>
+    <li><code>moveTo(x, y)</code>, <code>lineTo(x, y)</code>, <code>stroke()</code>: 선 그리기</li>
+    <li><code>clearRect()</code>: 특정 영역 지우기</li>
+  </ul>
+
+  <h2>🎨 실습 예제</h2>
+  <canvas id="demoCanvas" width="300" height="150"></canvas>
+  <script>
+    const canvas = document.getElementById('demoCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 파란 사각형
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(20, 20, 100, 50);
+
+    // 빨간 원
+    ctx.beginPath();
+    ctx.arc(200, 75, 30, 0, Math.PI * 2);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+
+    // 선
+    ctx.beginPath();
+    ctx.moveTo(10, 140);
+    ctx.lineTo(290, 140);
+    ctx.stroke();
+  </script>
+
+  <h2>📌 요약</h2>
+  <ul>
+    <li>Canvas는 HTML에서 직접 그림을 그릴 수 있는 요소</li>
+    <li><code>getContext('2d')</code>로 2D 도구를 받아 그림을 그림</li>
+    <li>사각형, 원, 선 등을 조합해 복잡한 그래픽도 구현 가능</li>
+  </ul>
+</body>
+</html>

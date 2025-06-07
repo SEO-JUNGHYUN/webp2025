@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 12 - 비동기 프로그래밍</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      font-size: 22px;
+      color: black;
+    }
+    h2 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 30px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    pre {
+      background-color: #ddd;
+      padding: 10px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 12 - 비동기 프로그래밍</h1>
+
+  <h2>비동기란?</h2>
+  <ul>
+    <li>작업이 동시에 진행되며, 완료될 때까지 기다리지 않고 다음 작업을 실행함</li>
+    <li>대표적인 예: 서버에서 데이터 받아오기, 파일 읽기 등</li>
+  </ul>
+
+  <h2>콜백 함수</h2>
+  <ul>
+    <li>함수의 실행이 끝난 뒤 호출되는 함수</li>
+    <li>중첩될 경우 "콜백 지옥"이 발생할 수 있음</li>
+  </ul>
+
+  <pre><code>function work(done) {
+  setTimeout(() => {
+    console.log("작업 완료");
+    done();
+  }, 1000);
+}
+
+work(() => {
+  console.log("콜백 실행");
+});</code></pre>
+
+  <h2>Promise</h2>
+  <ul>
+    <li>비동기 작업을 처리하기 위한 객체</li>
+    <li><code>.then()</code>, <code>.catch()</code>로 결과 처리</li>
+  </ul>
+
+  <pre><code>const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("완료"), 1000);
+});
+
+promise
+  .then(result => console.log(result))
+  .catch(err => console.error(err));</code></pre>
+
+  <h2>async / await</h2>
+  <ul>
+    <li>비동기 코드를 동기처럼 작성할 수 있게 해줌</li>
+    <li><code>await</code>는 <code>async</code> 함수 안에서만 사용 가능</li>
+  </ul>
+
+  <pre><code>async function fetchData() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const data = await res.json();
+    console.log(data);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+fetchData();</code></pre>
+
+  <h2>정리</h2>
+  <ul>
+    <li>비동기 처리를 위해 콜백, Promise, async/await 사용</li>
+    <li>코드 가독성과 유지보수를 위해 async/await이 많이 쓰임</li>
+  </ul>
+</body>
+</html>

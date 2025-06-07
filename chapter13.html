@@ -1,0 +1,86 @@
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 13 - API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      font-size: 22px;
+      color: black;
+    }
+    h2 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 30px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    pre {
+      background-color: #ddd;
+      padding: 10px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 13 - API</h1>
+
+  <h2>API란?</h2>
+  <ul>
+    <li>Application Programming Interface의 약자</li>
+    <li>프로그램이나 서비스 간에 데이터를 주고받기 위한 도구</li>
+    <li>자바스크립트에서는 주로 <code>fetch()</code>를 통해 요청</li>
+  </ul>
+
+  <h2>웹 API</h2>
+  <ul>
+    <li>브라우저가 제공하는 내장 API (예: <code>document</code>, <code>location</code>, <code>fetch()</code> 등)</li>
+    <li>개발자가 자바스크립트로 웹 기능을 제어할 수 있게 해줌</li>
+  </ul>
+
+  <h2>오픈 API</h2>
+  <ul>
+    <li>누구나 사용할 수 있도록 공개된 외부 서비스의 API</li>
+    <li>예: 공공데이터 포털, 날씨 정보, 지도 API 등</li>
+    <li>보통 URL과 키(API Key)를 이용해 사용</li>
+  </ul>
+
+  <h2>API 사용 예시</h2>
+  <pre><code>fetch("https://jsonplaceholder.typicode.com/users")
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(err => console.error(err));</code></pre>
+
+  <h2>응답 데이터 사용하기</h2>
+  <ul>
+    <li><code>res.json()</code>으로 응답을 JSON 형식으로 변환</li>
+    <li>받은 데이터를 배열로 받아 반복문 등으로 출력 가능</li>
+  </ul>
+
+  <h2>예시: 사용자 목록 출력</h2>
+  <pre><code>fetch("https://jsonplaceholder.typicode.com/users")
+  .then(res => res.json())
+  .then(users => {
+    users.forEach(user => {
+      console.log(user.name + " - " + user.email);
+    });
+  });</code></pre>
+
+  <h2>정리</h2>
+  <ul>
+    <li>API는 데이터나 기능을 외부에서 사용할 수 있게 해주는 인터페이스</li>
+    <li>웹 API는 브라우저 내장 기능, 오픈 API는 외부 서비스 연동용</li>
+    <li><code>fetch()</code>와 <code>.json()</code>을 함께 사용해 쉽게 다룰 수 있음</li>
+  </ul>
+</body>
+</html>

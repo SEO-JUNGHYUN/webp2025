@@ -10,12 +10,12 @@
       background-color: #f0f0f0;
     }
     h1 {
-      color: black;
       font-size: 22px;
+      color: black;
     }
     h2 {
-      color: #333;
       font-size: 18px;
+      color: #333;
       margin-top: 30px;
     }
     ul {
@@ -28,10 +28,12 @@
     }
     code {
       font-family: Consolas, monospace;
+      white-space: pre-wrap;
     }
     canvas {
       border: 1px solid #aaa;
       margin-top: 10px;
+      display: block;
     }
   </style>
 </head>
@@ -46,12 +48,12 @@
   </ul>
 
   <h2>기본 사용법</h2>
-  <pre><code><canvas id="myCanvas" width="300" height="150"></canvas>
+  <pre><code>&lt;canvas id="myCanvas" width="300" height="150"&gt;&lt;/canvas&gt;
 
-<script>
+&lt;script&gt;
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
-</script></code></pre>
+&lt;/script&gt;</code></pre>
 
   <h2>자주 쓰는 메서드</h2>
   <ul>
@@ -61,25 +63,24 @@
   </ul>
 
   <h2>예제 코드</h2>
-  <pre><code><canvas id="canvasEx" width="300" height="150"></canvas>
+  <canvas id="canvasEx" width="300" height="150"></canvas>
+  <script>
+    const canvas = document.getElementById('canvasEx');
+    const ctx = canvas.getContext('2d');
 
-<script>
-  const canvas = document.getElementById('canvasEx');
-  const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(10, 10, 100, 50);
 
-  ctx.fillStyle = 'blue';
-  ctx.fillRect(10, 10, 100, 50);
+    ctx.beginPath();
+    ctx.arc(200, 75, 30, 0, Math.PI * 2);
+    ctx.fillStyle = 'red';
+    ctx.fill();
 
-  ctx.beginPath();
-  ctx.arc(200, 75, 30, 0, Math.PI * 2);
-  ctx.fillStyle = 'red';
-  ctx.fill();
-
-  ctx.beginPath();
-  ctx.moveTo(0, 140);
-  ctx.lineTo(300, 140);
-  ctx.stroke();
-</script></code></pre>
+    ctx.beginPath();
+    ctx.moveTo(0, 140);
+    ctx.lineTo(300, 140);
+    ctx.stroke();
+  </script>
 
   <h2>정리</h2>
   <ul>
